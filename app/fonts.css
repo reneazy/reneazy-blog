@@ -1,0 +1,16 @@
+/* styles/fonts.css */
+@font-face {
+  font-family: "CalSans";
+  src: url("../public/fonts/CalSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-cal-sans {
+  font-family: "CalSans", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
