@@ -1,0 +1,16 @@
+.iconWrapper {
+  cursor: pointer;
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.5s ease;
+}
+
+.rotate {
+  transform: rotate(360deg);
+}
+.rotatesun {
+  transform: rotate(180deg);
+}
