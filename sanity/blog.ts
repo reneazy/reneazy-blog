@@ -38,31 +38,31 @@ export default {
         {
           type: 'block',
         },
-        // {
-        //   type: 'image',
-        //   fields: [
-        //     {
-        //       type: 'text',
-        //       name: 'alt',
-        //       title: 'Alternative text',
-        //       description: "Describe the image for people who can't see it",
-        //       options: {
-        //         isHighlighted: true,
-        //       },
-        //     },
-        //     {
-        //       type: 'text',
-        //       name: 'caption',
-        //       title: 'Caption',
-        //       options: {
-        //         isHighlighted: true,
-        //       },
-        //     },
-        //   ],
-        //   options: {
-        //     hotspot: true,
-        //   },
-        // },
+        {
+          type: 'image',
+          fields: [
+            {
+              type: 'text',
+              name: 'alt',
+              title: 'Alternative text',
+              description: "Describe the image for people who can't see it",
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {
+              type: 'text',
+              name: 'caption',
+              title: 'Caption',
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
+          options: {
+            hotspot: true,
+          },
+        },
       ],
     },
   ],
