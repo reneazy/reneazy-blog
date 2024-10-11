@@ -23,9 +23,11 @@ const Card: React.FC<CardProps> = ({ title, description, imageUrl, slug }) => {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 line-clamp-2">
-          {title}
-        </h3>
+        <Link href={`/blog/${slug}`}>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 line-clamp-2">
+            {title}
+          </h3>
+        </Link>
         <p className="mt-2 text-gray-600 dark:text-gray-300 line-clamp-3 text-sm">
           {description}
         </p>

@@ -1,6 +1,7 @@
 import { fullBlog } from "@/app/lib/interface";
 import { client, urlFor } from "@/app/lib/sanity";
 import console from "console";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 
 async function getData(slug: string) {
@@ -41,6 +42,9 @@ export default async function BlogArticle({
         priority
         className="rounded-lg mt-8 border"
       />
+      <div className="mt-16 prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
+        <PortableText value={data.content} />
+      </div>
     </div>
   );
 }
