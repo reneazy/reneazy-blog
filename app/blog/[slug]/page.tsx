@@ -1,22 +1,46 @@
 import { fullBlog } from "@/app/lib/interface";
 import { client, urlFor } from "@/app/lib/sanity";
-import console from "console";
-import { PortableText } from "next-sanity";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
 async function getData(slug: string) {
   const query = `
     *[_type == "blog" && slug.current == '${slug}']{
-  "currentSlug":slug.current,
-    title,
-    content,
-    titleImage
-}[0]
+      "currentSlug": slug.current,
+      title,
+      content,
+      titleImage
+    }[0]
   `;
 
   const data = await client.fetch(query);
   return data;
 }
+
+const ptComponents = {
+  types: {
+    image: ({ value }: { value: any }) => {
+      if (!value?.asset?._ref) {
+        return null;
+      }
+      return (
+        <div className="relative w-full h-96 my-6">
+          <Image
+            className="object-contain"
+            src={urlFor(value).url()}
+            alt={value.alt || " "}
+            fill
+          />
+          {value.caption && (
+            <div className="text-center text-gray-600 mt-2">
+              {value.caption}
+            </div>
+          )}
+        </div>
+      );
+    },
+  },
+};
 
 export default async function BlogArticle({
   params,
@@ -24,6 +48,7 @@ export default async function BlogArticle({
   params: { slug: string };
 }) {
   const data: fullBlog = await getData(params.slug);
+
   return (
     <div className="mt-10">
       <h1>
@@ -43,7 +68,7 @@ export default async function BlogArticle({
         className="rounded-lg mt-8 border"
       />
       <div className="mt-16 prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
-        <PortableText value={data.content} />
+        <PortableText value={data.content} components={ptComponents} />
       </div>
     </div>
   );
