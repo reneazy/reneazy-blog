@@ -1,7 +1,8 @@
 import Card from "@/components/CardComponent";
 import { simpleBlogCard } from "./lib/interface";
 import { client, urlFor } from "./lib/sanity";
-import Image from "next/image";
+
+export const revalidate = 30;
 
 async function getData() {
   const query = `*[_type == 'blog'] | order(_createdAt desc){
