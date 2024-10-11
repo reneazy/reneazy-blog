@@ -50,7 +50,7 @@ export default async function BlogArticle({
   const data: fullBlog = await getData(params.slug);
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 mx-auto px-4">
       <h1>
         <span className="block text-base text-center text-primary uppercase font-cal-sans">
           Reneazy Blog
